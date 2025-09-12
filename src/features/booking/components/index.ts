@@ -3,3 +3,7 @@ export { BookingHistory } from './booking-history';
 export { BookingHistoryPagination } from './booking-history-pagination';
 export { BookingHistoryTable } from './booking-history-table';
 export { BookingHistoryFilter } from './booking-history-filter';
+export { BookingHistoryDetail } from './booking-history-detail';
+export { PaymentModal } from './payment-modal';
+export { BookingCancelModal } from './booking-cancel-modal';
+export { BookingHistoryDetailSkeleton } from './booking-history-detail-skeleton';

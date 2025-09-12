@@ -30,7 +30,7 @@ export function Header() {
   ];
 
   return (
-    <header className='sticky top-0 z-50 w-full bg-white shadow-md px-8 py-4 flex items-center justify-between'>
+    <header className='sticky top-0 z-50 w-full shadow-md px-8 py-4 flex items-center justify-between'>
       <div className='flex items-center gap-8'>
         <NavLink to='/' className='flex items-center gap-2'>
           <img

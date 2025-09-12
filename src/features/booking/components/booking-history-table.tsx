@@ -13,7 +13,9 @@ import { BookingStatusBadge } from './booking-status-badge';
 import { PaymentStatusBadge } from './payment-status-badge';
 import { useTranslation } from 'react-i18next';
 import { Booking } from '@/types';
-import { formatDateTime, formatPrice } from '@/lib';
+import { formatPrice } from '@/lib';
+import { useDateTimeFormatter } from '@/features/booking';
+import { Link } from 'react-router';
 
 interface BookingHistoryTableProps {
   bookings: Booking[];
@@ -27,6 +29,7 @@ export function BookingHistoryTable({
   isFetching,
 }: BookingHistoryTableProps) {
   const { t } = useTranslation('booking');
+  const { formatDateTime } = useDateTimeFormatter();
 
   const isInitialLoading = isPending && bookings.length === 0;
   const isUpdating = isFetching && !isInitialLoading;
@@ -111,9 +114,11 @@ export function BookingHistoryTable({
                 </TableCell>
                 <TableCell>{formatPrice(String(b.total_price))}</TableCell>
                 <TableCell>
-                  <Button variant='outline' size='sm'>
-                    <Eye className='w-4 h-4 mr-1' />
-                    {t('booking_history.view')}
+                  <Button variant='outline' size='sm' asChild>
+                    <Link to={`/bookings/${b.id}`}>
+                      <Eye className='w-4 h-4 mr-1' />
+                      {t('booking_history.view')}
+                    </Link>
                   </Button>
                 </TableCell>
               </TableRow>

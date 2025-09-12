@@ -11,7 +11,12 @@ import {
 } from './pages';
 import { AuthLayout, MainLayout, SignInOutLayout } from './layouts';
 import { useThemeEffect } from './features/theme';
-import { VenueDetailPage, SpaceDetailPage, BookingHistoryPage } from './pages';
+import {
+  VenueDetailPage,
+  SpaceDetailPage,
+  BookingHistoryPage,
+  BookingHistoryDetailPage,
+} from './pages';
 import './i18n';
 import { useGetProfile, useSilentRefresh } from './features/auth';
 import AdminLayout from './layouts/AdminLayout';
@@ -34,6 +39,10 @@ function App() {
           <Route path='/venues/:venueId' element={<VenueDetailPage />} />
           <Route path='/spaces/:spaceId' element={<SpaceDetailPage />} />
           <Route path='/bookings' element={<BookingHistoryPage />} />
+          <Route
+            path='/bookings/:bookingId'
+            element={<BookingHistoryDetailPage />}
+          />
         </Route>
         <Route element={<AuthLayout />}>
           <Route element={<SignInOutLayout />}>
