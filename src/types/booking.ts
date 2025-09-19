@@ -1,4 +1,4 @@
-import { User, Space } from '@/types';
+import { User, Space, Payment } from '@/types';
 import { BookingStatus, BookingPaymentStatus } from '@/constants/';
 
 export type Booking = {
@@ -7,10 +7,11 @@ export type Booking = {
   space: Space;
   status: BookingStatus;
   status_payment: BookingPaymentStatus;
-  total_price: number;
+  payments: Payment[];
+  total_price: string;
   start_time: string;
   end_time: string;
-  checkin: string | null;
-  checkout: string | null;
+  check_in: string | null;
+  check_out: string | null;
   created_at: string;
 };

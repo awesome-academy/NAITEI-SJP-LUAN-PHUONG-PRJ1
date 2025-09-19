@@ -1,3 +1,4 @@
+import { Booking } from '@/types';
 import { axios } from './axios';
 import { CreateBookingResponse, BookingMeResponse } from '@/features/booking';
 import { BookingFilterParams } from '@/features/booking';
@@ -21,6 +22,12 @@ export async function getBookingMe(
   params: BookingFilterParams,
 ): Promise<BookingMeResponse> {
   const { data } = await axios.get(`${BOOKING_ENDPOINT}/me`, { params });
+
+  return data.data;
+}
+
+export async function getBookingDetail(id: string): Promise<Booking> {
+  const { data } = await axios.get(`${BOOKING_ENDPOINT}/${id}`);
 
   return data.data;
 }

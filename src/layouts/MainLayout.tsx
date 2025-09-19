@@ -14,7 +14,7 @@ export function MainLayout() {
   return (
     <div className='flex flex-col min-h-screen'>
       <Header />
-      <main className='flex-1 p-8 bg-gray-50 dark:bg-gray-900'>
+      <main className='flex-1 p-8'>
         <Outlet />
       </main>
       <Footer />
