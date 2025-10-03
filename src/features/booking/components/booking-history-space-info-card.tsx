@@ -18,8 +18,8 @@ export function BookingHistorySpaceInfoCard({ booking, renderActions }: Props) {
       <div className='p-6'>
         <h2 className='text-xl font-bold mb-4'>{t('space_info')}</h2>
 
-        <div className='flex gap-4'>
-          <div className='w-24 h-24 rounded-lg overflow-hidden bg-gray-200 flex-shrink-0'>
+        <div className='flex flex-col sm:flex-row gap-3 sm:gap-4'>
+          <div className='w-24 h-24 rounded-lg overflow-hidden bg-gray-200 mx-auto sm:mx-0 flex-shrink-0'>
             {booking.space.images && booking.space.images[0] ? (
               <img
                 src={booking.space.images[0]}
@@ -34,7 +34,7 @@ export function BookingHistorySpaceInfoCard({ booking, renderActions }: Props) {
             )}
           </div>
 
-          <div className='flex-1'>
+          <div className='flex-1 mt-3 sm:mt-0'>
             <h3 className='font-semibold text-lg mb-2'>{booking.space.name}</h3>
 
             <div className='space-y-2 text-sm text-gray-600'>
@@ -50,7 +50,7 @@ export function BookingHistorySpaceInfoCard({ booking, renderActions }: Props) {
               </div>
             </div>
 
-            <div className='mt-3 flex items-center gap-3'>
+            <div className='mt-3 flex flex-wrap items-center gap-2'>
               <Button asChild variant='outline' size='sm'>
                 <Link
                   to={`/spaces/${booking.space.id}`}
@@ -62,7 +62,7 @@ export function BookingHistorySpaceInfoCard({ booking, renderActions }: Props) {
                 </Link>
               </Button>
 
-              <div className='flex gap-2 ml-auto'>{renderActions}</div>
+              <div className='flex gap-2 sm:ml-auto'>{renderActions}</div>
             </div>
           </div>
         </div>

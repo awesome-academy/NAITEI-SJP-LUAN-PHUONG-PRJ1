@@ -14,7 +14,7 @@ export function MainLayout() {
   return (
     <div className='flex flex-col min-h-screen'>
       <Header />
-      <main className='flex-1 p-8 container mx-auto'>
+      <main className='flex-1 p-4 lg:p-8 container mx-auto'>
         <Outlet />
       </main>
       <Footer />
