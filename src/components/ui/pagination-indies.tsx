@@ -41,8 +41,8 @@ export function PaginationIndies({
             />
           </PaginationItem>
         )}
-        {pages.map((p) => (
-          <PaginationItem key={p}>
+        {pages.map((p, index) => (
+          <PaginationItem key={p === 0 ? `ellipsis-${index}` : p}>
             {p !== 0 ? (
               <PaginationButton
                 disabled={disabled}

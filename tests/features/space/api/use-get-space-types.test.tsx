@@ -1,7 +1,8 @@
 import { renderHook, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { vi, describe, it, expect, Mocked } from 'vitest';
-import { useGetSpaceTypes } from '@/features/space';
+import { useGetSpaceTypes } from '@/features/space/api/use-get-space-types';
+import { axios } from '@/api/axios';
 
 vi.mock('@/api/axios', () => {
   return {
@@ -11,7 +12,6 @@ vi.mock('@/api/axios', () => {
   };
 });
 
-import { axios } from '@/api/axios';
 const mockedAxios = axios as Mocked<typeof axios>;
 
 function createWrapper() {

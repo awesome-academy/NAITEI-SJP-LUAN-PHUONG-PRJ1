@@ -1,12 +1,29 @@
-import { OmitKeyof, QueryClient } from '@tanstack/react-query';
+import {
+  OmitKeyof,
+  QueryClient,
+  QueryObserverOptions,
+} from '@tanstack/react-query';
 import { PersistQueryClientOptions } from '@tanstack/react-query-persist-client';
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister';
 import { getBookingQuery, getMyBookingListQueryKey } from '@/features/booking';
 import { getProfileQueryKey } from '@/features/auth';
 
-const defaultQueryConfig = {
+const defaultQueryConfig: OmitKeyof<
+  QueryObserverOptions<
+    unknown,
+    Error,
+    unknown,
+    unknown,
+    readonly unknown[],
+    never
+  >,
+  'suspense' | 'queryKey',
+  'strictly'
+> = {
   staleTime: 1000 * 60,
   gcTime: 1000 * 60 * 60 * 24,
+  retry: 3,
+  retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
 };
 
 export const queryClient = new QueryClient({

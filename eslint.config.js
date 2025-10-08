@@ -29,4 +29,10 @@ export default tseslint.config([
       'react-hooks/exhaustive-deps': 'off',
     },
   },
+  {
+    files: ['tests/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': 'off',
+    },
+  },
 ]);
